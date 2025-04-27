@@ -1,12 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 
-// Middlewares
-app.use(cors());
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'https://vault-box-jiyapalrecha35s-projects.vercel.app',
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Routes
