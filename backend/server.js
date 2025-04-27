@@ -7,7 +7,7 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors({
-  origin: 'https://vault-box-jiyapalrecha35s-projects.vercel.app',
+  origin: 'https://vault-box-frontend.vercel.app/',
   credentials: true
 }));
 
