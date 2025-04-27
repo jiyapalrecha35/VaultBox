@@ -25,9 +25,10 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
         autoDeleteVaults(); // 🛠️ Start auto delete job **after** MongoDB is connected
 
-        // Use '0.0.0.0' to ensure the server listens on all interfaces
-        app.listen(process.env.PORT || 5000, '0.0.0.0', () => {
-            console.log(`Server running on port ${process.env.PORT || 5000}`);
+        // Ensure the app listens on the correct port
+        const port = process.env.PORT || 5000; // Use Render's provided PORT or fallback to 5000
+        app.listen(port, '0.0.0.0', () => {
+            console.log(`Server running on port ${port}`);
         });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error('MongoDB connection error:', err));
